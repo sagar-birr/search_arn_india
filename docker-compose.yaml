@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  arn_search:
+    container_name: arn_search
+    image: infrabeyondirr/tech:arn_search
+    platform: linux/amd64
+    command: python3 arn.py
+    ports:
+      - "5000:5000"
+    restart: always

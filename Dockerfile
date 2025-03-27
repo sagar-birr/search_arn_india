@@ -7,15 +7,8 @@ WORKDIR /app
 # Copy the application files
 COPY . /app
 
+# Copy the SQLite database
+COPY database.db /app/database.db
+
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Expose the Flask port
-EXPOSE 5000
-
-# Define environment variable for Flask
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-
-# Run the application
-CMD ["flask", "run"]
